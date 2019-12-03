@@ -78,6 +78,7 @@
   - DroidSheep
   - Nmap
 - **Bluetooth Attacks**
+  - Uses weak encryption by default and therefore makes an easy target
   - **Bluesmacking** - denial of service against device
   - **Bluejacking** - sending unsolicited messages
   - **Bluesniffing** - attempt to discover Bluetooth devices
@@ -85,6 +86,7 @@
   - **Bluesnarfing** - theft of data from a device
   - **Blueprinting** - colecting device information over Bluetooth
 - **Bluetooth Attack Tools**
+  - **BB Proxy Tool** - useful to execute BT DoS attacks
   - **BlueScanner** - finds devices around you
   - **BT Browser** - another tool for finding and enumerating devices
   - **Bluesniff** and **btCrawler** - sniffing programs with GUI
@@ -149,7 +151,7 @@
     - **Foren6** - IoT traffic sniffer
   - **Vulnerability Scanning** - same as normal methodology - looks for vulnerabilities
     - **Tools**
-      - Nmap
+      - Nmap (is known to take IoT devices offline without careful consideration to what switches are used)
       - RIoT Vulnerability Scanner
       - beSTORM
       - IoTsploit

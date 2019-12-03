@@ -27,6 +27,7 @@
   - **Cloud Auditor** - independent assor of cloud service an security controls
 - **FedRAMP** - regulatory effort regarding cloud computing
 - **PCI DSS** - deals with debit and credit cards, but also has a cloud SIG
+- **Benefits** - allows for separation of duties much more clearly and cleanly
 
 ### <u>Cloud Security</u>
 

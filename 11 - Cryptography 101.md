@@ -5,13 +5,14 @@
 - **Cryptography** - science or study of protecting information whether in transit or at rest
   - Renders the information unusable to anyone who can't decrypt it
   - Takes plain text, applies cryptographic method, turn it into cipher text
-- **Crypanalysis** - study and methods used to crack cipher text
+- **Cryptanalysis** - study and methods used to crack cipher text
 - **Linear Cryptanalysis** - works best on block ciphers
 - **Differential Cryptanalysis** - applies to symmetric key algorithms
   - Compares differences in the inputs to how each one affects the outcome
 - **Integral cryptanalysis** - input vs output comparison same as differential; however, runs multiple computations of the same block size input
 - Plain text doesn't necessarily mean ASCII format - it simply means unencrypted data
 - **Nonrepudiation** - means by which a recipient can ensure the identity of the sender and neither party can deny sending
+- **Birthday Attack** - another term for cryptography collisions
 
 ### <u>Encryption Algorithms and Techniques</u>
 
@@ -55,6 +56,7 @@
 - The private key is used to digitally sign a message
 - **Algorithms**
   - **Diffie-Hellman** - developed as a key exchange protocol; used in SSL and IPSec; if digital signatures are waived, vulnerable to MITM attacks
+    - Group 5 uses a 1536-bit key, Group 14 uses a 2048-bit key
   - **Elliptic Curve Cryptosystem** (ECC) - uses points on elliptical curve along with logarithmic problems; uses less processing power; good for mobile devices
   - **El Gamal** - not based on prime number factoring; uses solving of discrete logarithm problems
   - **RSA** - achieves strong encryption through the use of two large prime numbers; factoring thse create key sizes up to 4096 bits; modern de facto standard

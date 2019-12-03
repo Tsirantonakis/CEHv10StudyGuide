@@ -47,6 +47,7 @@
   - WPA uses TKIP with a 128-bit key
   - WPA changes the key every 10,000 packets
   - WPA transfers keys back and forth during an **Extensible Authentication Protocol** (EAP)
+  - WPA2 aligns with the 802.11i standard (using block ciphers and MIC CCMP)
   - **WPA2 Enterprise** - can tie an EAP or RADIUS server into the authentication
   - **WPA2 Personal** - uses a pre-shared key to authenticate
   - WPA2 uses AES for encryption
@@ -116,6 +117,7 @@
   	  - Uses dictionary attacks for WPA and WPA 2.  Other attacks are  for WEP only
 	- **Cain and Abel** - sniffs packets and cracks passwords (may take longer)
       - Relies on statistical measures and the PTW technique to break WEP
+  - **Bully** - used to crack WPS PINs
 	- **KisMAC** - MacOS tool to brute force WEP or WPA passwords
 	- **WEPAttack**
 	- **WEPCrack**

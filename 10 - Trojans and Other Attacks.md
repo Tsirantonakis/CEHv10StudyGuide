@@ -65,7 +65,8 @@
 | Back Orifice       | 31337,8|
 
 - **netstat -an** - shows open ports in numerical order
-- **netstat -b** - displays all active connections and the processes using them
+- **netstat -b** - displays all active connections and the processes using them (requires an admin shell)
+  - Useful for single devices. Use Wireshark to analyse multiple devices
 - **Process Explorer** - Microsoft tool that shows you everything about running processes
 - **Registry Monitoring Tools**
   - SysAnalyzer
@@ -91,6 +92,7 @@
     - CryptoDefense
     - police-themed
 - **Other Virus Types**
+  - **Hypervisor Virus** - infects a hypervisor layer that can be injected into the guest OS layers
   - **Boot Sector Virus** - known as system virus; moves boot sector to another location and then inserts its code int he original location
   - **Shell Virus** - wraps  around an application's code, inserting itself before the application's
   - **Cluster Virus** - modifies directory table entries so every time a file or folder is opened, the virus runs

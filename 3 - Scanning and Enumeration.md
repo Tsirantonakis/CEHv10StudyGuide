@@ -53,6 +53,7 @@
     | 443         | HTTPS    | TCP                |
     | 445         | SMB      | TCP                |
     | 514         | SYSLOG   | UDP                |
+    |3389         | MSRDP    | TCP                |
 
   - A service is said to be **listening** for a port when it has that specific port open
 
@@ -67,7 +68,7 @@
 ### <u>Subnetting</u>
 
 - **IPv4 Main Address Types**
-  - **Unicast** - acted on by a single recipient
+  - **Unicast** - acted on by a single recipient (and on mirrored ports)
   - **Multicast** - acted on by members of a specific group
   - **Broadcast** - acted on by everyone on the network
     - **Limited** - delivered to every system in the domain (255.255.255.255)
@@ -103,7 +104,7 @@
   | ICMP Message Type           | Description and Codes                                        |
   | --------------------------- | ------------------------------------------------------------ |
   | 0:  Echo Reply              | Answer to a Type 8 Echo Request                              |
-  | 3:  Destination Unreachable | Error message followed by these codes:<br />0 - Destination network unreachable<br />1 - Destination host unreachable<br />6 - Network unknown<br />7 - Host unknown<br />9 - Network administratively prohibited<br />10 - Host administratively prohibited<br />13 - Communication administratively prohibited |
+  | 3:  Destination Unreachable | Error message followed by these codes:<br />0 - Destination network unreachable<br />1 - Destination host unreachable<br />2 - Port closed<br />6 - Network unknown<br />7 - Host unknown<br />9 - Network administratively prohibited<br />10 - Host administratively prohibited<br />13 - Communication administratively prohibited |
   | 4: Source Quench            | A congestion control message                                 |
   | 5: Redirect                 | Sent when there are two or more gateways available for the sender to use.  Followed by these codes:<br />0 - Redirect datagram for the network<br />1 - Redirect datagram for the host |
   | 8:  Echo Request            | A ping message, requesting an echo reply                     |
@@ -143,8 +144,8 @@
   - nmap -sA (ACK scan)
   - nmap -sW (Window scan)
 - **IDLE Scan** - uses a third party to check if a port is open
-  - Looks at the IPID to see if there is a repsonse
-  - Only works if third party isn't transmitting data
+  - Looks at the IPID to see if there is a response
+  - Only works if third party isn't transmitting data and third party can reflect port 443
   - Sends a request to the third party to check IPID id; then sends a spoofed packet to the target with a return of the third party; sends a request to the third party again to check if IPID increased.
     - IPID increase of 1 indicates port closed
     - IPID increase of 2 indicates port open
@@ -176,6 +177,8 @@
 | -oX             | XML output                                                   |
 | -T0 through -T2 | Serial scans.  T0 is slowest                                 |
 | -T3 through -T5 | Parallel scans.  T3 is slowest                               |
+| -D              | decoyIP1,decoyIP2....,sourceIP,.... [target]                 |
+| -f              | fragments packets
 
 - Nmap runs by default at a T3 level
 - **Fingerprinting** - another word for port sweeping and enumeration
@@ -183,6 +186,7 @@
 ### <u>Hping</u>
 
 - Another powerful ping sweep and port scanning tool
+- Uses TCP instead of UDP by default
 - Also can craft packets
 - hping3 -1 IPaddress
 
@@ -209,7 +213,7 @@
 - One method is to fragment packets (nmap -f switch)
 - **OS Fingerprinting**
   - **Active**  - sending crafted packets to the target
-  - **Passive** - sniffing network traffic for things such as TTL windows, DF flags and ToS fields
+  - **Passive** - sniffing network traffic for things such as TTL windows, DF flags and ToS fields (can be used to ID Windows or Linux hosts)
 - **Spoofing** - can only be used when you don't expect a response back to your machine
 - **Source routing** - specifies the path a packet should take on the network; most systems don't allow this anymore
 - **IP Address Decoy** - sends packets from your IP as well as multiple other decoys to confuse the IDS/Firewall as to where the attack is really coming from
@@ -263,6 +267,9 @@
 - Easy way to banner grab is connect via telnet on port (e.g. 80 for web server)
 - **Netcat** can also be used to banner grab
   - nc <IPaddress or FQDN> <port number>
+  - nc -l to create a listener/recipients
+  - nc -L Windows Only, creates a persistent listener
+  - nc -e Run this command on startup
 - Can be used to get information about OS or specific server info (such as web server, mail server, etc.)
 
 ### <u>NetBIOS Enumeration</u>
@@ -331,6 +338,7 @@
     - Can also use Nmap and Wireshark
   - **Commands** include ntptrace, ntpdc and ntpq
 - **SMTP**
+  - Runs on TCP 25
   - VRFY - validates user
   - EXPN - provides actual delivery address of mailing list and aliases
   - RCPT TO - defines recipients

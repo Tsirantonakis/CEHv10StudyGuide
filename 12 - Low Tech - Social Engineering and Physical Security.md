@@ -50,7 +50,7 @@
 - **Spear Phishing** - targeting a person or a group with a phishing attack
   - Can be more useful because attack can be targeted
 - **Whaling** - going after CEOs or other C-level executives
-- **Pharming** - use of malicious code that redirects a user's traffic
+- **Pharming** - use of malicious code that redirects a user's traffic (aka DNS poisoning)
 - **Spimming** - sending spam over instant message
 - **Tools** - Netcraft Toolbar and PhishTank Toolbar
 - **Fave Antivirus** - very prevalent attack; pretends to be an anti-virus but is a malicious tool

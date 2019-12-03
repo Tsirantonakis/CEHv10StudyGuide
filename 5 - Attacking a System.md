@@ -52,6 +52,13 @@
   - Microsoft Management Console - used by Windows to administer system
   - Has "snap-ins" that allow you to modify sets (such as Group Policy Editor)
 
+- **Notable Information**
+  - Uses the route command to add routes
+  - Best Practice for SQL Server is to only allow the sysadmin role to spawn cmd shells
+  - DNS command-line config via HINFO
+  - Does not respond to broadcast ICMP packets
+  - sc query command-line command to enumerate active and inactive services
+
 ### <u>Linux Security Architecture</u>
 
 - Linux root is just a slash (/)
@@ -79,6 +86,7 @@
 | ps       | Process status.  -ef option shows all processes              |
 | rm       | Removes files.  -r option recursively removes all directories and subdirectories |
 | su       | Allows you to perform functions as another user (super user) |
+| nohup    | allows commands to run in the background beyond user logout  |
 
 - Adding an ampersand after a process name indicates it should run in the background.
 - **pwd** - displays curennt directory
@@ -91,6 +99,10 @@
 - Passwords are stored in /etc/shadow for most current systems
 - /etc/password stores passwords in hashes.
 - /etc/shadow stores passwords encrypted (hashed and salted) and is only accessible by root
+- Uses iptables to manage firewall rules
+  - the MASQ entry in a firewall rule indicates that **proxychains** is active for IP masquerading
+- stores logged in users in the file *utmp*
+- stores failed authentications in the tile *btmp*
 
 ### <u>System Hacking Goals</u>
 

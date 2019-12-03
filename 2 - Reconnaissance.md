@@ -33,9 +33,9 @@
 - **Job Search Sites** - information about technologies can be gleaned from job postings
 - **Google**
   - filetype:  - looks for file types
-  - index of - directory listings
+  - index of - directory listings (often used with intitle)
   - info: - contains Google's information about the page
-  - intitle: - string in title
+  - intitle: - string in page title
   - inurl: - string in url
   - link: - finds linked pages
   - related: - finds similar pages
@@ -73,7 +73,7 @@
 
 - **DNS Record Types**
 
-  
+
 
   - | Name  | Description        | Purpose                                        |
     | ----- | ------------------ | ---------------------------------------------- |
@@ -116,7 +116,7 @@
     - nslookup
     - server <IP Address>
     - set type = any
-    - ls -d domainname.com
+    - ls -d domainname.com (also ls -t ANY)
 
 - **Dig** - unix-based command like nslookup
 

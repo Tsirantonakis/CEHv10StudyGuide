@@ -47,11 +47,11 @@
 - Double colon can only be used once
 - Loopback address is ::1
 
-| IPv6 Address Type | Description                                           |
-| ----------------- | ----------------------------------------------------- |
-| Unicast           | Addressed and intended for one host interface         |
-| Multicast         | Addressed for multiple host interfaces                |
-| Anycast           | Large number of hosts can receive; nearest host opens |
+| IPv6 Address Type | Description                                                       |
+| ----------------- | ----------------------------------------------------------------  |
+| Unicast           | Addressed and intended for one host interface but can be mirrored |
+| Multicast         | Addressed for multiple host interfaces                            |
+| Anycast           | Large number of hosts can receive; nearest host opens             |
 
 | IPv6 Scopes | Description                                                  |
 | ----------- | ------------------------------------------------------------ |
@@ -174,6 +174,7 @@
     - **Sniffer** - watches packets in real time
     - **Packet logger** - saves packets to disk for review at a later time
     - **NIDS** - analyzes network traffic against various rule sets
+  - Default actions: Pass, Drop, Alert, Log
   - Configuration is in /etc/snort on Linux and c:\snort\etc in Windows
   - **Rule syntax**
     - alert tcp !HOME_NET any -> $HOME_NET 31337 (msg : "BACKDOOR ATTEMPT-Backorifice")
@@ -189,11 +190,13 @@
   - **Screened subnet** - hosts all public-facing servers and services
   - **Bastion hosts** - hosts on the screened subnet designed to protect internal resources
   - **Private zone** - hosts internal hosts that only respond to requests from within that zone
-  - **Multi-homed** - firewall that has two or more interfaces
-  - **Packet-filtering** - firewalls that only looked at headers
+  - **Multi-homed** - firewall that has two or more interfaces (standard for hardware)
+  - **Packet-filtering** - firewalls that only looked at headers (Layer 3)
   - **Stateful inspection** - firewalls that track the entire status of a connection
   - **Circuit-level gateway** - firewall that works on Layer 5 (Session layer)
   - **Application-level gateway** - firewall that works like a proxy, allowing specific services in and out
+- **THOR**
+  - Scans for APT activity
 
 ### <u>Evasion Techniques</u>
 
@@ -213,6 +216,7 @@
 - ICMP Type 3 Code 3 tells you the client itself has the port closed
 - Firewall type can be discerned by banner grabbing
 - **Firewalking** - going through every port on a firewall to determine what is open
+  - Gives a TTL error when a port is closed
 - **Tools**
   - CovertTCP
   - ICMP Shell

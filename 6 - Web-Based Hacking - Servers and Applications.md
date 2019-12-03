@@ -139,6 +139,7 @@
   - Example - input "' OR 1 = 1 --" into a login field - basically tells the server if 1 = 1 (always true) to allow the login.
   - Double dash (--) tells the server to ignore the rest of the query (in this example, the password check)
   - Basic test to see if SQL injection is possible is just inserting a single quote (')
+  - CSPP - Connection String Parameter Pollution - to exploit database access
   - **Fuzzing** - inputting random data into a target to see what will happen
   - **Tautology** - using always true statements to test SQL (e.g. 1=1)
   - **In-band SQL injection** - uses same communication channel to perform attack
@@ -146,6 +147,7 @@
     - Best for using UNION queries
   - **Out-of-band SQL injection** - uses different communication channels (e.g. export results to file on web server)
   - **Blind/inferential** - error messages and screen returns don't occur; usually have to guess whether command work or use timing to know
+    - If a standard blind test fails, run a *heavy* query against a target table - this will help you work better in a blind situation
   - **Tools**
     - Sqlmap
     - sqlninja
@@ -158,4 +160,5 @@
 - **HTTP Response Splitting**  - adds header response data to an input field so server splits the response
   - Can be used to redirect a user to a malicious site
   - Is not an attack in and of itself - must be combined with another attack
+  - Useful for avoiding an IDS
 - **Countermeasures** - input scrubbing for injection, SQL parameterization for SQL injection, keeping patched servers, turning off unnecessary services, ports and protocols
